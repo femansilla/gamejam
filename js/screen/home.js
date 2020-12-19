@@ -39,12 +39,10 @@ function setupHome() {
     renderer.render(stage);
 
     function onDownBtnJugar (eventData) {
-        btnJugar.scale.x += 0.3;
-        btnJugar.scale.y += 0.3;
+        loadJuego();
     }
     function onDownBtnCreditos (eventData) {
-        btnCreditos.scale.x += 0.3;
-        btnCreditos.scale.y += 0.3;
+        loadCreditos();
     }
 
     // start animating

@@ -8,20 +8,7 @@ let stage = new PIXI.Container();
 
 // Setup function to run once load completed sucessfully
 function setup() {
-
 	loadHome()
-	// // Load in image and assign it to a sprite
-	//   let fondoNoche = new PIXI.Sprite.fromImage("/img/screens/fondoNoche.png");
-	//   let fondoEdificios = new PIXI.Sprite.fromImage("/img/screens/fondoEdificios.png");
-	//   let lucesEdificios = new PIXI.Sprite.fromImage("/img/screens/lucesEdificios.png");
-
-	//   // Add the sprite to the stage
-	//   stage.addChild(fondoNoche);
-	//   stage.addChild(fondoEdificios);
-	//   stage.addChild(lucesEdificios);
-
-	//   // Render the stage so we can see the sprite
-	//   renderer.render(stage);
 }
 
 window.onload = function() {
