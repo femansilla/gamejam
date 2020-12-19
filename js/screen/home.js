@@ -3,22 +3,30 @@ function setupHome() {
     let fondoHome = new PIXI.Sprite.fromImage("/img/screens/home/fondoHome.png");
     
     let btnJugar = new PIXI.Sprite.fromImage("/img/botones/btnAzul.png");
-    btnJugar.position.x = 700
-    btnJugar.position.y = 300
+    btnJugar.position.set(700,300);
     // text
     const textBtnJugar = new PIXI.Text(`JUGAR`, {fill:"#ffffff"});
     const txtBtnJugar = new PIXI.Sprite(PIXI.Texture.WHITE);
     txtBtnJugar.width = textBtnJugar.width,txtBtnJugar.height = textBtnJugar.height;
+    
+    btnJugar.interactive = true;
+    btnJugar.on('mousedown', onDownBtnJugar);
+    btnJugar.on('touchstart', onDownBtnJugar);
+
     btnJugar.addChild(txtBtnJugar,textBtnJugar);
 
 
     let btnCreditos = new PIXI.Sprite.fromImage("/img/botones/btnNaranja.png");
-    btnCreditos.position.x = 700
-    btnCreditos.position.y = 400
+    btnCreditos.position.set(700,400);
     // text
     const textBtnCreditos = new PIXI.Text(`CREDITOS`, {fill:"#ffffff"});
     const txtBtnCreditos = new PIXI.Sprite(PIXI.Texture.WHITE);
     txtBtnCreditos.width = textBtnCreditos.width,txtBtnCreditos.height = textBtnCreditos.height;
+
+    btnCreditos.interactive = true;
+    btnCreditos.on('mousedown', onDownBtnCreditos);
+    btnCreditos.on('touchstart', onDownBtnCreditos);
+
     btnCreditos.addChild(txtBtnCreditos,textBtnCreditos);
 
 
@@ -29,7 +37,26 @@ function setupHome() {
 
     // Render the stage so we can see the sprite
     renderer.render(stage);
+
+    function onDownBtnJugar (eventData) {
+        btnJugar.scale.x += 0.3;
+        btnJugar.scale.y += 0.3;
+    }
+    function onDownBtnCreditos (eventData) {
+        btnCreditos.scale.x += 0.3;
+        btnCreditos.scale.y += 0.3;
+    }
+
+    // start animating
+    animate();
+
+    function animate() {
+        requestAnimationFrame(animate);
+        // render the root container
+        renderer.render(stage);
+    }
 }
+
 
 function loadHome(){
     // Add an image to the loader
