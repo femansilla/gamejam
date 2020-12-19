@@ -6,28 +6,24 @@ function setupHome() {
     btnJugar.position.set(700,400);
     // text
     const textBtnJugar = new PIXI.Text(`JUGAR`, {fill:"#ffffff"});
-    const txtBtnJugar = new PIXI.Sprite(PIXI.Texture.WHITE);
-    txtBtnJugar.width = textBtnJugar.width,txtBtnJugar.height = textBtnJugar.height;
     
     btnJugar.interactive = true;
     btnJugar.on('mousedown', onDownBtnJugar);
     btnJugar.on('touchstart', onDownBtnJugar);
 
-    btnJugar.addChild(txtBtnJugar,textBtnJugar);
+    btnJugar.addChild(textBtnJugar);
 
 
     let btnCreditos = new PIXI.Sprite.fromImage("/img/botones/btnNaranja.png");
     btnCreditos.position.set(700,500);
     // text
     const textBtnCreditos = new PIXI.Text(`CREDITOS`, {fill:"#ffffff"});
-    const txtBtnCreditos = new PIXI.Sprite(PIXI.Texture.WHITE);
-    txtBtnCreditos.width = textBtnCreditos.width,txtBtnCreditos.height = textBtnCreditos.height;
 
     btnCreditos.interactive = true;
     btnCreditos.on('mousedown', onDownBtnCreditos);
     btnCreditos.on('touchstart', onDownBtnCreditos);
 
-    btnCreditos.addChild(txtBtnCreditos,textBtnCreditos);
+    btnCreditos.addChild(textBtnCreditos);
 
 
     // Add the sprite to the stage
@@ -69,4 +65,6 @@ function loadHome(){
     if(typeof PIXI.loader.resources["/img/botones/btnNaranja.png"] == "undefined"){
         PIXI.loader.add("/img/botones/btnNaranja.png").load(setupHome);
     }
+
+    setupHome();
 }

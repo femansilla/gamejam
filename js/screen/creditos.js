@@ -5,12 +5,10 @@ function setupCreditos() {
     let btnVolver = new PIXI.Sprite.fromImage("/img/botones/btnAzul.png");
     btnVolver.position.set(750,500);
     const textBtnVolver = new PIXI.Text(`Volver`, {fill:"#ffffff"});
-    const txtBtnVolver = new PIXI.Sprite(PIXI.Texture.WHITE);
-    txtBtnVolver.width = textBtnVolver.width,txtBtnVolver.height = textBtnVolver.height;
     btnVolver.interactive = true;
     btnVolver.on('mousedown', backToHomeScreen);
     btnVolver.on('touchstart', backToHomeScreen);
-    btnVolver.addChild(txtBtnVolver,textBtnVolver);
+    btnVolver.addChild(textBtnVolver);
 
     // Add the sprite to the stage
     stage.addChild(fondoCreditos);
@@ -20,7 +18,8 @@ function setupCreditos() {
     renderer.render(stage);
 
     function backToHomeScreen (eventData) {
-        loadHome();
+        loadHome()
+        PIXI.loader.reset()
     }
 
     // start animating
@@ -36,5 +35,7 @@ function setupCreditos() {
 
 function loadCreditos(){
     // Add an image to the loader
-    PIXI.loader.add("/img/screens/creditos/fondoCreditos.jpg").load(setupCreditos);
+    if(typeof PIXI.loader.resources["/img/screens/creditos/fondoCreditos.jpg"] == "undefined"){
+        PIXI.loader.add("/img/screens/creditos/fondoCreditos.jpg").load(setupCreditos);
+    }
 }
