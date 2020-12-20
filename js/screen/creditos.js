@@ -1,6 +1,6 @@
 function setupCreditos() {
     // Load in image and assign it to a sprite
-    let fondoCreditos = new PIXI.Sprite.fromImage("/img/screens/creditos/fondoCreditos.jpg");
+    let fondoCreditos = new PIXI.Sprite.fromImage("/img/screens/creditos/fondoCreditos.png");
     
     let btnVolver = new PIXI.Sprite.fromImage("/img/botones/btnAzul.png");
     btnVolver.position.set(750,500);
@@ -35,7 +35,7 @@ function setupCreditos() {
 
 function loadCreditos(){
     // Add an image to the loader
-    if(typeof PIXI.loader.resources["/img/screens/creditos/fondoCreditos.jpg"] == "undefined"){
-        PIXI.loader.add("/img/screens/creditos/fondoCreditos.jpg").load(setupCreditos);
+    if(typeof PIXI.loader.resources["/img/screens/creditos/fondoCreditos.png"] == "undefined"){
+        PIXI.loader.add("/img/screens/creditos/fondoCreditos.png").load(setupCreditos);
     }
 }
