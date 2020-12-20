@@ -1,6 +1,6 @@
 function setupHome() {
     // Load in image and assign it to a sprite
-    let fondoHome = new PIXI.Sprite.fromImage("/img/screens/home/fondoHome.png");
+    let fondoHome = new PIXI.Sprite.fromImage("/img/screens/home/fondoHome.jpg");
     
     let btnJugar = new PIXI.Sprite.fromImage("/img/botones/btnAzul.png");
     btnJugar.position.set(700,400);
@@ -25,9 +25,12 @@ function setupHome() {
 
     btnCreditos.addChild(textBtnCreditos);
 
+    let delivery = new PIXI.Sprite.fromImage("/img/screens/home/delivery.png");
+    delivery.position.set(500,600);
 
     // Add the sprite to the stage
     stage.addChild(fondoHome);
+    stage.addChild(delivery);
     stage.addChild(btnJugar);
     stage.addChild(btnCreditos);
 
@@ -54,9 +57,14 @@ function setupHome() {
 
 function loadHome(){
     // Add an image to the loader
-    if(typeof PIXI.loader.resources["/img/screens/home/fondoHome.png"] == "undefined"){
-        PIXI.loader.add("/img/screens/home/fondoHome.png").load(setupHome);
+    if(typeof PIXI.loader.resources["/img/screens/home/fondoHome.jpg"] == "undefined"){
+        PIXI.loader.add("/img/screens/home/fondoHome.jpg").load(setupHome);
     }
+
+    if(typeof PIXI.loader.resources["/img/screens/home/delivery.png"] == "undefined"){
+        PIXI.loader.add("/img/screens/home/delivery.png").load(setupHome);
+    }
+
     
     if(typeof PIXI.loader.resources["/img/botones/btnAzul.png"] == "undefined"){
         PIXI.loader.add("/img/botones/btnAzul.png").load(setupHome);
